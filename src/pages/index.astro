@@ -1,0 +1,66 @@
+---
+// Placeholder page. Content intentionally left to Aditya.
+const name = 'Aditya Nihlani';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Placeholder only: keeps search engines from indexing an empty site.
+         Remove this line when the real content goes live. -->
+    <meta name="robots" content="noindex" />
+    <title>{name}</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>A</text></svg>"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>{name}</h1>
+      <p class="soon">Site under construction.</p>
+    </main>
+
+    <style>
+      :root {
+        --bg: #fbfbf9;
+        --fg: #17171a;
+        --muted: #6b6b73;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #17171a;
+          --fg: #f2f2ef;
+          --muted: #9a9aa2;
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; height: 100%; }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 2rem;
+        text-align: center;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(1.75rem, 6vw, 3rem);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .soon { margin: 0; color: var(--muted); font-size: 1rem; }
+    </style>
+  </body>
+</html>

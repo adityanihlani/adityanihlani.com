@@ -17,3 +17,7 @@ pnpm-debug.log*
 
 # macOS
 .DS_Store
+
+# manual deploy scratch (safe to delete)
+_deploy/
+_to_delete/

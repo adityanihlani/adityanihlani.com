@@ -1,5 +1,4 @@
 ---
-// Placeholder page. Content intentionally left to Aditya.
 const name = 'Aditya Nihlani';
 ---
 
@@ -16,63 +15,80 @@ const name = 'Aditya Nihlani';
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>A</text></svg>"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
-      <h1>{name}</h1>
-      <p class="soon">Site under construction.</p>
+      <header>
+        <h1>{name}</h1>
+        <p class="soon">Site under construction.</p>
+      </header>
+
+      <p class="label"><span class="dot"></span> Latest</p>
       <a class="post" href="/blog/raspberry-pi-smart-home/">
-        <span class="label">Latest</span>
-        <span class="title">How a simple Raspberry Pi computer got me into the best hobby I've ever had</span>
+        <img src="/images/pi4-top.jpg" alt="A Raspberry Pi 4 Model B board" width="1920" height="1282" />
+        <div class="body">
+          <span class="kicker">Home automation · 5 min read</span>
+          <span class="title">
+            How a simple <em>Raspberry Pi</em> computer got me into the best hobby I’ve ever had
+          </span>
+          <span class="read">Read the story <b>→</b></span>
+        </div>
       </a>
     </main>
 
     <style>
       :root {
-        --bg: #fbfbf9;
-        --fg: #17171a;
-        --muted: #6b6b73;
+        --bg: #0b0d0c;
+        --bg2: #121513;
+        --fg: #ece9e1;
+        --muted: #9aa19d;
+        --line: rgba(236, 233, 225, 0.14);
+        --accent: #7bd88f;
       }
-      @media (prefers-color-scheme: dark) {
+      @media (prefers-color-scheme: light) {
         :root {
-          --bg: #17171a;
-          --fg: #f2f2ef;
-          --muted: #9a9aa2;
+          --bg: #f6f3ec;
+          --bg2: #ece7db;
+          --fg: #16191a;
+          --muted: #5c6360;
+          --line: rgba(22, 25, 26, 0.16);
+          --accent: #1f7a3c;
         }
       }
       * { box-sizing: border-box; }
-      html, body { margin: 0; padding: 0; height: 100%; }
       body {
-        background: var(--bg);
-        color: var(--fg);
-        font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
+        margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg);
+        font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+        background-image: radial-gradient(60rem 30rem at 80% -10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%);
+        background-repeat: no-repeat;
       }
-      main {
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 2rem;
-        text-align: center;
+      main { max-width: 760px; margin: 0 auto; padding: clamp(3rem, 12vh, 7rem) 1.5rem 4rem; }
+      h1 { margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.6rem, 8vw, 4.5rem); letter-spacing: -0.03em; line-height: 1; }
+      .soon { margin: 0.9rem 0 0; color: var(--muted); font-size: 1rem; }
+      .label {
+        display: flex; align-items: center; gap: 0.6rem; margin: 4rem 0 1rem;
+        font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
       }
-      h1 {
-        margin: 0;
-        font-size: clamp(1.75rem, 6vw, 3rem);
-        font-weight: 600;
-        letter-spacing: -0.02em;
-      }
-      .soon { margin: 0; color: var(--muted); font-size: 1rem; }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
       .post {
-        margin-top: 2.5rem; max-width: 30rem; padding: 1.1rem 1.3rem; border: 1px solid var(--muted);
-        border-radius: 14px; color: inherit; text-decoration: none; display: flex; flex-direction: column; gap: 0.35rem;
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        display: block; color: inherit; text-decoration: none; border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+        background: var(--bg2); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
-      .post:hover { transform: translateY(-2px); border-color: var(--fg); }
-      .label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-      .title { font-size: 1.05rem; line-height: 1.4; font-weight: 500; }
+      .post:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--accent) 45%, transparent); }
+      .post img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 8; object-fit: cover; }
+      .body { display: flex; flex-direction: column; gap: 0.8rem; padding: 1.6rem 1.8rem 1.8rem; }
+      .kicker { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+      .title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.5rem, 4.4vw, 2.1rem); line-height: 1.15; letter-spacing: -0.02em; }
+      .title em { color: var(--accent); }
+      .read { color: var(--accent); font-weight: 500; font-size: 0.95rem; }
+      .read b { display: inline-block; transition: transform 0.25s ease; }
+      .post:hover .read b { transform: translateX(5px); }
     </style>
   </body>
 </html>
